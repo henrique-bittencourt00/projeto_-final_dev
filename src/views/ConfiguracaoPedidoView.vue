@@ -1,7 +1,8 @@
 <template>
   <div>
-    <h1>Configuração do Pedido</h1>
-    <pedido-component :burguer="burguerSelecionado" />
+    <h1>Monte o seu pedido</h1>
+    <p class="subtitulo-secao">Ajuste a massa, o tamanho e os adicionais antes de confirmar.</p>
+    <PedidoComponent :pizza="pizzaSelecionada" />
   </div>
 </template>
 
@@ -15,17 +16,18 @@ export default {
   },
   data() {
     return {
-      burguerSelecionado: null,
+      pizzaSelecionada: null,
     };
   },
-  mounted(){
+  mounted() {
     const query = this.$route.query;
-    if( query.burguer ) {
-      const decodedBurguer = JSON.parse(decodeURIComponent(query.burguer));
-      this.burguerSelecionado = decodedBurguer;
+    if (query.pizza) {
+      this.pizzaSelecionada = JSON.parse(decodeURIComponent(query.pizza));
     }
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.subtitulo-secao { color: var(--muted); font-size: 16px; margin: 0 0 28px; }
+</style>

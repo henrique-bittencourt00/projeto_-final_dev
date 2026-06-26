@@ -1,46 +1,62 @@
 <template>
   <div>
-    <h1>Menu</h1>
-    <div id="scroll-horizontal">
-      <div
-        id="card-content"
-        v-for="burguer in listaMenuHamburguers"
-        :key="burguer.id"
+    <h1>Cardápio</h1>
+    <p class="subtitulo-secao">Escolha o seu sabor e monte a pizza do seu jeito.</p>
+
+    <div v-if="carregando" class="estado">Carregando o cardápio...</div>
+
+    <div v-else class="cardapio-grid">
+      <article
+        class="cartao"
+        v-for="pizza in listaPizzas"
+        :key="pizza.id"
       >
-        <div id="card-linha">
-          <div class="foto-hamburguer">
-            <img width="300" height="200" :src="burguer.foto" />
-            <div class="card-coluna">
-              <p id="nome-content">{{ burguer.nome }}</p>
-              <p id="valor-content">R$ {{ burguer.valor }},00</p>
-              <p id="descricao-content">{{ burguer.descricao }}</p>
-              <button @click="selecionarBurguer(burguer)">Selecionar</button>
-            </div>
-          </div>
+        <div class="cartao-foto">
+          <img :src="pizza.foto" :alt="pizza.nome" loading="lazy" />
+          <span v-if="pizza.eh_novidade" class="selo">Novidade</span>
         </div>
-      </div>
+        <div class="cartao-corpo">
+          <h2 class="cartao-nome">{{ pizza.nome }}</h2>
+          <p class="cartao-preco">{{ formatPreco(pizza.valor) }}</p>
+          <p class="cartao-descricao">{{ pizza.descricao }}</p>
+          <button class="cartao-btn" @click="selecionarPizza(pizza)">
+            Montar pedido
+          </button>
+        </div>
+      </article>
     </div>
   </div>
 </template>
+
 <script>
+import { API_URL } from "@/config";
+
 export default {
   name: "MenuView",
   data() {
     return {
-      listaMenuHamburguers: [],
+      listaPizzas: [],
+      carregando: true,
     };
   },
   methods: {
     async consultarMenu() {
-      const response = await fetch("http://localhost:3000/menu");
-      const dados = await response.json();
-      this.listaMenuHamburguers = dados.burgues;
-      console.log(this.listaMenuHamburguers);
+      try {
+        const res = await fetch(`${API_URL}/menu`);
+        const dados = await res.json();
+        this.listaPizzas = dados.pizzas || dados.burgues || [];
+      } catch (e) {
+        this.listaPizzas = [];
+      } finally {
+        this.carregando = false;
+      }
     },
-    selecionarBurguer(burguerSelecionado) {
-      const parametroBurguer = JSON.stringify(burguerSelecionado);
-      const encodedBurguer = encodeURIComponent(parametroBurguer);
-      this.$router.push({ path: "/config-pedido", query: { burguer: encodedBurguer } });
+    selecionarPizza(pizzaSelecionada) {
+      const parametro = encodeURIComponent(JSON.stringify(pizzaSelecionada));
+      this.$router.push({ path: "/config-pedido", query: { pizza: parametro } });
+    },
+    formatPreco(valor) {
+      return "R$ " + Number(valor || 0).toFixed(2).replace(".", ",");
     },
   },
   mounted() {
@@ -48,100 +64,64 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+.subtitulo-secao { color: var(--muted); font-size: 16px; margin: 0 0 28px; }
+.estado { color: var(--muted); padding: 40px 0; }
 
-#card-content {
-  display: inline-block;
-  width: 280px;
-  min-height: 500px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+.cardapio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 22px;
+}
+
+.cartao {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
-  align-items: center;
-  margin: 20px;
-}
-
-#scroll-horizontal {
-  flex: 1;
-  overflow-x: auto;
-  white-space: nowrap;
-  width: 900px;
-  margin: 0 auto;
-  box-shadow: inset -10px 0px 15px -20px rgba(0, 0, 0, 0.1), inset 10px 0px 15px -20px rgba(0, 0, 0, 0.1);
-}
-
-#nome-content {
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  width: 100%;
-  margin: 12px;
-} 
-
-.foto-hamburguer {
-  flex-shrink: 0;
-}
-
-.foto-hamburguer img {
-  width: 100%;
-  max-height: 200px;
-  object-fit: cover;
-}
-
-#valor-content {
-  font-size: 35px;
-  font-weight: bold;
-  text-align: center;
-  color: darkblue;
-  width: 100%;
-  margin: 12px;
-}
-
-#descricao-content {
-  font-size: 16px;
-  color: darkslateblue;
-  text-align: left;
-  width: 100%;
-  white-space: pre-line;
-  margin: 16px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-}
-
-.card-linha {
+  box-shadow: var(--shadow);
   display: flex;
-  flex-direction: row;
-  height: 100%;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+.cartao:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(43, 26, 20, 0.14); }
 
-.card-coluna {
-  flex-grow: 1;
-  height: 15px;
-  padding: 15px;
-}
-
-.card-coluna button {
-  padding: 10px;
-  width: 100%;
-  border: none;
+.cartao-foto { position: relative; height: 180px; }
+.cartao-foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.selo {
   position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background-color: darkblue;
-  color: white;
-  border-radius: 5px;
+  top: 12px;
+  left: 12px;
+  background: var(--basil);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.cartao-corpo { padding: 18px 18px 20px; display: flex; flex-direction: column; flex: 1; text-align: left; }
+.cartao-nome { font-size: 23px; margin: 0; }
+.cartao-preco {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--brand);
+  margin: 6px 0 10px;
+}
+.cartao-descricao { color: var(--muted); font-size: 14.5px; line-height: 1.45; margin: 0 0 18px; flex: 1; }
+
+.cartao-btn {
+  background: var(--wood);
+  color: #fff;
+  border: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: background 0.2s;
 }
-
-.card-coluna button:hover {
-  background-color: navy;
-}
-
+.cartao-btn:hover { background: var(--brand); }
 </style>

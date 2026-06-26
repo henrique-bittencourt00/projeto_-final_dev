@@ -1,62 +1,160 @@
-﻿{
+{
   "tipos_pontos": [
-    { "id": 1, "descricao": "Massa fina" },
-    { "id": 2, "descricao": "Massa grossa" },
-    { "id": 3, "descricao": "Borda recheada" },
-    { "id": 4, "descricao": "Sem cebola" }
+    {
+      "id": 1,
+      "descricao": "Massa fina tradicional"
+    },
+    {
+      "id": 2,
+      "descricao": "Massa grossa (pan)"
+    },
+    {
+      "id": 3,
+      "descricao": "Borda recheada com catupiry"
+    },
+    {
+      "id": 4,
+      "descricao": "Borda recheada com cheddar"
+    },
+    {
+      "id": 5,
+      "descricao": "Massa integral"
+    }
   ],
   "status_pedido": [
-    { "id": 1, "descricao": "Pedido em espera" },
-    { "id": 2, "descricao": "Em produção" },
-    { "id": 3, "descricao": "A caminho" },
-    { "id": 4, "descricao": "Entregue" },
-    { "id": 5, "descricao": "Pedido pendente" },
-    { "id": 6, "descricao": "Pedido realizado" }
+    {
+      "id": 1,
+      "descricao": "Pedido em espera"
+    },
+    {
+      "id": 2,
+      "descricao": "Em produção"
+    },
+    {
+      "id": 3,
+      "descricao": "Saiu para entrega"
+    },
+    {
+      "id": 4,
+      "descricao": "Entregue"
+    },
+    {
+      "id": 5,
+      "descricao": "Pedido pendente"
+    },
+    {
+      "id": 6,
+      "descricao": "Cancelado"
+    }
   ],
   "pedidos": [
     {
       "id": 1,
-      "nome": "Ana",
-      "ponto": { "id": 1, "descricao": "Massa fina" },
+      "nome": "Ana Souza",
+      "ponto": {
+        "id": 1,
+        "descricao": "Massa fina tradicional",
+        "fatias": 6,
+        "fator": 1
+      },
+      "tamanho": {
+        "id": 2,
+        "descricao": "Média",
+        "fatias": 6,
+        "fator": 1
+      },
+      "meioAMeio": false,
+      "segundoSabor": null,
       "bebidas": [
         {
           "id": 1,
-          "nome": "Refrigerante Lata",
-          "descricao": "Coca-Cola 310ml",
+          "nome": "Refrigerante 2L",
+          "descricao": "Coca-Cola 2 litros",
           "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
-          "valor": 6,
+          "valor": 12,
           "eh_novidade": false
         }
       ],
+      "complemento": [],
+      "burguer": {
+        "id": 1,
+        "nome": "Margherita",
+        "descricao": "Molho de tomate, mussarela, manjericão fresco e azeite",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80",
+        "valor": 39,
+        "eh_novidade": false
+      },
+      "valor": 51,
+      "statusId": 2
+    },
+    {
+      "id": 2,
+      "nome": "Bruno Lima",
+      "ponto": {
+        "id": 3,
+        "descricao": "Borda recheada com catupiry",
+        "fatias": 8,
+        "fator": 1.3
+      },
+      "tamanho": {
+        "id": 3,
+        "descricao": "Grande",
+        "fatias": 8,
+        "fator": 1.3
+      },
+      "meioAMeio": true,
+      "segundoSabor": {
+        "id": 4,
+        "nome": "Calabresa",
+        "descricao": "Calabresa fatiada, cebola e mussarela",
+        "foto": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=400&q=80",
+        "valor": 43,
+        "eh_novidade": false
+      },
+      "bebidas": [],
       "complemento": [
         {
           "id": 1,
-          "nome": "Borda recheada",
-          "descricao": "Borda com catupiry e parmesão",
+          "nome": "Borda extra catupiry",
+          "descricao": "Reforço de catupiry na borda",
           "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
           "valor": 8,
           "eh_novidade": true
         }
       ],
       "burguer": {
-        "id": 1,
-        "nome": "Margherita",
-        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
-        "descricao": "Molho de tomate, mussarela e manjericão fresco.",
-        "valor": 39,
+        "id": 2,
+        "nome": "Pepperoni",
+        "descricao": "Mussarela e fatias generosas de pepperoni",
+        "foto": "",
+        "valor": 45,
         "eh_novidade": true
       },
-      "statusId": 2
+      "valor": 66.5,
+      "statusId": 1
     },
     {
-      "id": 2,
-      "nome": "Bruno",
-      "ponto": { "id": 2, "descricao": "Massa grossa" },
+      "id": 3,
+      "nome": "Catarina Dias",
+      "ponto": {
+        "id": 2,
+        "descricao": "Massa grossa (pan)",
+        "fatias": 8,
+        "fator": 1.3
+      },
+      "tamanho": {
+        "id": 4,
+        "descricao": "Família",
+        "fatias": 12,
+        "fator": 1.7
+      },
+      "meioAMeio": false,
+      "segundoSabor": null,
       "bebidas": [
         {
           "id": 2,
-          "nome": "Suco natural",
-          "descricao": "Laranja 500ml",
+          "nome": "Suco natural de laranja",
+          "descricao": "500ml gelado",
           "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
           "valor": 8,
           "eh_novidade": false
@@ -66,54 +164,30 @@
         {
           "id": 2,
           "nome": "Extra queijo",
-          "descricao": "Mais mussarela por cima",
-          "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+          "descricao": "Camada dupla de mussarela",
+          "foto": "https://images.unsplash.com/photo-1542282811-943ef1a98fba?auto=format&fit=crop&w=300&q=80",
           "valor": 5,
           "eh_novidade": false
         }
       ],
       "burguer": {
-        "id": 2,
-        "nome": "Pepperoni",
-        "foto": "https://images.unsplash.com/photo-1542282811-943ef1a98fba?auto=format&fit=crop&w=300&q=80",
-        "descricao": "Molho de tomate, mussarela e pepperoni crocante.",
-        "valor": 45,
-        "eh_novidade": true
-      },
-      "statusId": 4
-    },
-    {
-      "id": 3,
-      "nome": "Catarina",
-      "ponto": { "id": 3, "descricao": "Borda recheada" },
-      "bebidas": [],
-      "complemento": [
-        {
-          "id": 3,
-          "nome": "Calabresa especial",
-          "descricao": "Calabresa artesanal com cebola caramelizada",
-          "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
-          "valor": 7,
-          "eh_novidade": true
-        }
-      ],
-      "burguer": {
         "id": 3,
         "nome": "Quatro Queijos",
-        "foto": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=300&q=80",
-        "descricao": "Mussarela, gorgonzola, parmesão e provolone.",
+        "descricao": "Mussarela, provolone, parmesão e catupiry",
+        "foto": "https://images.unsplash.com/photo-1542282811-943ef1a98fba?auto=format&fit=crop&w=400&q=80",
         "valor": 47,
-        "eh_novidade": true
+        "eh_novidade": false
       },
-      "statusId": 6
+      "valor": 92.9,
+      "statusId": 4
     }
   ],
   "opcionais": {
     "complemento": [
       {
         "id": 1,
-        "nome": "Borda recheada",
-        "descricao": "Borda com catupiry e parmesão",
+        "nome": "Borda extra catupiry",
+        "descricao": "Reforço de catupiry na borda",
         "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
         "valor": 8,
         "eh_novidade": true
@@ -121,33 +195,49 @@
       {
         "id": 2,
         "nome": "Extra queijo",
-        "descricao": "Mais mussarela por cima",
-        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Camada dupla de mussarela",
+        "foto": "https://images.unsplash.com/photo-1542282811-943ef1a98fba?auto=format&fit=crop&w=300&q=80",
         "valor": 5,
         "eh_novidade": false
       },
       {
         "id": 3,
         "nome": "Calabresa especial",
-        "descricao": "Calabresa artesanal com cebola caramelizada",
-        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Porção extra de calabresa",
+        "foto": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=300&q=80",
+        "valor": 7,
+        "eh_novidade": false
+      },
+      {
+        "id": 4,
+        "nome": "Bacon crocante",
+        "descricao": "Cubos de bacon dourado",
+        "foto": "https://images.unsplash.com/photo-1528607929212-2636ec44253e?auto=format&fit=crop&w=300&q=80",
         "valor": 7,
         "eh_novidade": true
+      },
+      {
+        "id": 5,
+        "nome": "Azeitona preta",
+        "descricao": "Azeitonas selecionadas",
+        "foto": "https://images.unsplash.com/photo-1552539618-7eec9b4d1796?auto=format&fit=crop&w=300&q=80",
+        "valor": 4,
+        "eh_novidade": false
       }
     ],
     "bebidas": [
       {
         "id": 1,
-        "nome": "Refrigerante Lata",
-        "descricao": "Coca-Cola 310ml",
+        "nome": "Refrigerante 2L",
+        "descricao": "Coca-Cola 2 litros",
         "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
-        "valor": 6,
+        "valor": 12,
         "eh_novidade": false
       },
       {
         "id": 2,
-        "nome": "Suco natural",
-        "descricao": "Laranja 500ml",
+        "nome": "Suco natural de laranja",
+        "descricao": "500ml gelado",
         "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
         "valor": 8,
         "eh_novidade": false
@@ -155,10 +245,26 @@
       {
         "id": 3,
         "nome": "Água com gás",
-        "descricao": "500ml",
+        "descricao": "Garrafa 500ml",
         "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
         "valor": 4,
         "eh_novidade": false
+      },
+      {
+        "id": 4,
+        "nome": "Refrigerante Lata",
+        "descricao": "Guaraná 350ml",
+        "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
+        "valor": 6,
+        "eh_novidade": false
+      },
+      {
+        "id": 5,
+        "nome": "Cerveja long neck",
+        "descricao": "Heineken 330ml",
+        "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
+        "valor": 10,
+        "eh_novidade": true
       }
     ]
   },
@@ -167,9 +273,9 @@
       {
         "id": 1,
         "nome": "Pizza da Casa",
-        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
-        "descricao": "Molho artesanal, mussarela, tomate seco e manjericão.",
-        "valor": 42,
+        "descricao": "Criação especial do chef, sabor da semana",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80",
+        "valor": 49,
         "eh_novidade": true
       }
     ],
@@ -177,42 +283,66 @@
       {
         "id": 1,
         "nome": "Margherita",
-        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
-        "descricao": "Molho de tomate, mussarela e manjericão fresco.",
+        "descricao": "Molho de tomate, mussarela, manjericão fresco e azeite",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=400&q=80",
         "valor": 39,
-        "eh_novidade": true
+        "eh_novidade": false
       },
       {
         "id": 2,
         "nome": "Pepperoni",
-        "foto": "https://images.unsplash.com/photo-1542282811-943ef1a98fba?auto=format&fit=crop&w=300&q=80",
-        "descricao": "Molho de tomate, mussarela e pepperoni crocante.",
+        "descricao": "Mussarela e fatias generosas de pepperoni",
+        "foto": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?auto=format&fit=crop&w=400&q=80",
         "valor": 45,
         "eh_novidade": true
       },
       {
         "id": 3,
         "nome": "Quatro Queijos",
-        "foto": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=300&q=80",
-        "descricao": "Mussarela, gorgonzola, parmesão e provolone.",
+        "descricao": "Mussarela, provolone, parmesão e catupiry",
+        "foto": "https://images.unsplash.com/photo-1542282811-943ef1a98fba?auto=format&fit=crop&w=400&q=80",
         "valor": 47,
-        "eh_novidade": true
+        "eh_novidade": false
       },
       {
         "id": 4,
         "nome": "Calabresa",
-        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
-        "descricao": "Molho de tomate, mussarela e calabresa especial.",
+        "descricao": "Calabresa fatiada, cebola e mussarela",
+        "foto": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=400&q=80",
         "valor": 43,
         "eh_novidade": false
       },
       {
         "id": 5,
         "nome": "Vegetariana",
-        "foto": "https://images.unsplash.com/photo-1552539618-7eec9b4d1796?auto=format&fit=crop&w=300&q=80",
-        "descricao": "Mussarela, tomate, cebola, pimentão e azeitonas.",
+        "descricao": "Abobrinha, berinjela, pimentão, cebola e mussarela",
+        "foto": "https://images.unsplash.com/photo-1552539618-7eec9b4d1796?auto=format&fit=crop&w=400&q=80",
         "valor": 41,
         "eh_novidade": false
+      },
+      {
+        "id": 6,
+        "nome": "Frango com Catupiry",
+        "descricao": "Frango desfiado temperado com catupiry cremoso",
+        "foto": "https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=400&q=80",
+        "valor": 44,
+        "eh_novidade": true
+      },
+      {
+        "id": 7,
+        "nome": "Portuguesa",
+        "descricao": "Presunto, ovo, cebola, ervilha, azeitona e mussarela",
+        "foto": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80",
+        "valor": 46,
+        "eh_novidade": false
+      },
+      {
+        "id": 8,
+        "nome": "Brigadeiro",
+        "descricao": "Pizza doce de chocolate com granulado e morango",
+        "foto": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=400&q=80",
+        "valor": 42,
+        "eh_novidade": true
       }
     ]
   }
