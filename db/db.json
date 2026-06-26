@@ -1,0 +1,219 @@
+﻿{
+  "tipos_pontos": [
+    { "id": 1, "descricao": "Massa fina" },
+    { "id": 2, "descricao": "Massa grossa" },
+    { "id": 3, "descricao": "Borda recheada" },
+    { "id": 4, "descricao": "Sem cebola" }
+  ],
+  "status_pedido": [
+    { "id": 1, "descricao": "Pedido em espera" },
+    { "id": 2, "descricao": "Em produção" },
+    { "id": 3, "descricao": "A caminho" },
+    { "id": 4, "descricao": "Entregue" },
+    { "id": 5, "descricao": "Pedido pendente" },
+    { "id": 6, "descricao": "Pedido realizado" }
+  ],
+  "pedidos": [
+    {
+      "id": 1,
+      "nome": "Ana",
+      "ponto": { "id": 1, "descricao": "Massa fina" },
+      "bebidas": [
+        {
+          "id": 1,
+          "nome": "Refrigerante Lata",
+          "descricao": "Coca-Cola 310ml",
+          "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
+          "valor": 6,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 1,
+          "nome": "Borda recheada",
+          "descricao": "Borda com catupiry e parmesão",
+          "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+          "valor": 8,
+          "eh_novidade": true
+        }
+      ],
+      "burguer": {
+        "id": 1,
+        "nome": "Margherita",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Molho de tomate, mussarela e manjericão fresco.",
+        "valor": 39,
+        "eh_novidade": true
+      },
+      "statusId": 2
+    },
+    {
+      "id": 2,
+      "nome": "Bruno",
+      "ponto": { "id": 2, "descricao": "Massa grossa" },
+      "bebidas": [
+        {
+          "id": 2,
+          "nome": "Suco natural",
+          "descricao": "Laranja 500ml",
+          "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
+          "valor": 8,
+          "eh_novidade": false
+        }
+      ],
+      "complemento": [
+        {
+          "id": 2,
+          "nome": "Extra queijo",
+          "descricao": "Mais mussarela por cima",
+          "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+          "valor": 5,
+          "eh_novidade": false
+        }
+      ],
+      "burguer": {
+        "id": 2,
+        "nome": "Pepperoni",
+        "foto": "https://images.unsplash.com/photo-1542282811-943ef1a98fba?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Molho de tomate, mussarela e pepperoni crocante.",
+        "valor": 45,
+        "eh_novidade": true
+      },
+      "statusId": 4
+    },
+    {
+      "id": 3,
+      "nome": "Catarina",
+      "ponto": { "id": 3, "descricao": "Borda recheada" },
+      "bebidas": [],
+      "complemento": [
+        {
+          "id": 3,
+          "nome": "Calabresa especial",
+          "descricao": "Calabresa artesanal com cebola caramelizada",
+          "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+          "valor": 7,
+          "eh_novidade": true
+        }
+      ],
+      "burguer": {
+        "id": 3,
+        "nome": "Quatro Queijos",
+        "foto": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Mussarela, gorgonzola, parmesão e provolone.",
+        "valor": 47,
+        "eh_novidade": true
+      },
+      "statusId": 6
+    }
+  ],
+  "opcionais": {
+    "complemento": [
+      {
+        "id": 1,
+        "nome": "Borda recheada",
+        "descricao": "Borda com catupiry e parmesão",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+        "valor": 8,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "Extra queijo",
+        "descricao": "Mais mussarela por cima",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+        "valor": 5,
+        "eh_novidade": false
+      },
+      {
+        "id": 3,
+        "nome": "Calabresa especial",
+        "descricao": "Calabresa artesanal com cebola caramelizada",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+        "valor": 7,
+        "eh_novidade": true
+      }
+    ],
+    "bebidas": [
+      {
+        "id": 1,
+        "nome": "Refrigerante Lata",
+        "descricao": "Coca-Cola 310ml",
+        "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
+        "valor": 6,
+        "eh_novidade": false
+      },
+      {
+        "id": 2,
+        "nome": "Suco natural",
+        "descricao": "Laranja 500ml",
+        "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
+        "valor": 8,
+        "eh_novidade": false
+      },
+      {
+        "id": 3,
+        "nome": "Água com gás",
+        "descricao": "500ml",
+        "foto": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?auto=format&fit=crop&w=300&q=80",
+        "valor": 4,
+        "eh_novidade": false
+      }
+    ]
+  },
+  "menu": {
+    "limitado": [
+      {
+        "id": 1,
+        "nome": "Pizza da Casa",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Molho artesanal, mussarela, tomate seco e manjericão.",
+        "valor": 42,
+        "eh_novidade": true
+      }
+    ],
+    "burgues": [
+      {
+        "id": 1,
+        "nome": "Margherita",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Molho de tomate, mussarela e manjericão fresco.",
+        "valor": 39,
+        "eh_novidade": true
+      },
+      {
+        "id": 2,
+        "nome": "Pepperoni",
+        "foto": "https://images.unsplash.com/photo-1542282811-943ef1a98fba?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Molho de tomate, mussarela e pepperoni crocante.",
+        "valor": 45,
+        "eh_novidade": true
+      },
+      {
+        "id": 3,
+        "nome": "Quatro Queijos",
+        "foto": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Mussarela, gorgonzola, parmesão e provolone.",
+        "valor": 47,
+        "eh_novidade": true
+      },
+      {
+        "id": 4,
+        "nome": "Calabresa",
+        "foto": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Molho de tomate, mussarela e calabresa especial.",
+        "valor": 43,
+        "eh_novidade": false
+      },
+      {
+        "id": 5,
+        "nome": "Vegetariana",
+        "foto": "https://images.unsplash.com/photo-1552539618-7eec9b4d1796?auto=format&fit=crop&w=300&q=80",
+        "descricao": "Mussarela, tomate, cebola, pimentão e azeitonas.",
+        "valor": 41,
+        "eh_novidade": false
+      }
+    ]
+  }
+}
